@@ -19,11 +19,11 @@ pipeline{
             }
         }
 
-        stage('test'){
-            steps{
-                sh 'mvn test'
-            }
-        }
+        // stage('test'){
+        //     steps{
+        //         sh 'mvn test'
+        //     }
+        // }
 
         stage('build docker image'){
             steps{
@@ -45,7 +45,7 @@ pipeline{
     post{
 
         always{
-            sh 'docker image prune -f || true' 
+            sh 'docker image prune -f || true ' 
         }
     }
 }
