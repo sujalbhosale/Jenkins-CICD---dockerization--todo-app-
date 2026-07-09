@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TodoService.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">todo-app</a> &gt; <a href="index.source.html" class="el_package">com.example.todo.service</a> &gt; <span class="el_source">TodoService.java</span></div><h1>TodoService.java</h1><pre class="source lang-java linenums">package com.example.todo.service;
+
+import com.example.todo.exception.ResourceNotFoundException;
+import com.example.todo.model.TodoItem;
+import com.example.todo.repository.TodoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import java.util.List;
+
+@Service
+public class TodoService {
+
+    private final TodoRepository todoRepository;
+
+    @Autowired
+<span class="fc" id="L16">    public TodoService(TodoRepository todoRepository) {</span>
+<span class="fc" id="L17">        this.todoRepository = todoRepository;</span>
+<span class="fc" id="L18">    }</span>
+
+    public List&lt;TodoItem&gt; getAllTodos() {
+<span class="fc" id="L21">        return todoRepository.findAll();</span>
+    }
+
+    public TodoItem getTodoById(Long id) {
+<span class="fc" id="L25">        return todoRepository.findById(id)</span>
+<span class="fc" id="L26">                .orElseThrow(() -&gt; new ResourceNotFoundException(&quot;Todo not found with id: &quot; + id));</span>
+    }
+
+    public TodoItem createTodo(TodoItem todoItem) {
+<span class="fc" id="L30">        return todoRepository.save(todoItem);</span>
+    }
+
+    public TodoItem updateTodo(Long id, TodoItem todoDetails) {
+<span class="fc" id="L34">        TodoItem todoItem = getTodoById(id);</span>
+        
+<span class="fc" id="L36">        todoItem.setTitle(todoDetails.getTitle());</span>
+<span class="fc" id="L37">        todoItem.setDescription(todoDetails.getDescription());</span>
+<span class="fc" id="L38">        todoItem.setCompleted(todoDetails.isCompleted());</span>
+<span class="fc" id="L39">        todoItem.setTargetDate(todoDetails.getTargetDate());</span>
+        
+<span class="fc" id="L41">        return todoRepository.save(todoItem);</span>
+    }
+
+    public void deleteTodo(Long id) {
+<span class="fc" id="L45">        TodoItem todoItem = getTodoById(id);</span>
+<span class="fc" id="L46">        todoRepository.delete(todoItem);</span>
+<span class="fc" id="L47">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>

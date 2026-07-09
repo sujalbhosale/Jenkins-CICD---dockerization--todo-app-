@@ -1,0 +1,6 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+todo-app,com.example.todo.controller,TodoController,0,45,0,0,0,12,0,6,0,6
+todo-app,com.example.todo.exception,ResourceNotFoundException,0,4,0,0,0,2,0,1,0,1
+todo-app,com.example.todo.service,TodoService,0,66,0,0,0,16,0,7,0,7
+todo-app,com.example.todo.model,TodoItem,0,53,0,0,0,23,0,12,0,12
+todo-app,com.example.todo,TodoApplication,5,3,0,0,2,1,1,1,1,1

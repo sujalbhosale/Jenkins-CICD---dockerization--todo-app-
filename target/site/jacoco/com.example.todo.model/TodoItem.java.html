@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>TodoItem.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">todo-app</a> &gt; <a href="index.source.html" class="el_package">com.example.todo.model</a> &gt; <span class="el_source">TodoItem.java</span></div><h1>TodoItem.java</h1><pre class="source lang-java linenums">package com.example.todo.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+import java.time.LocalDate;
+
+@Entity
+@Table(name = &quot;todos&quot;)
+public class TodoItem {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @NotBlank(message = &quot;Title is mandatory&quot;)
+    @Size(max = 100, message = &quot;Title must not exceed 100 characters&quot;)
+    private String title;
+
+    @Size(max = 500, message = &quot;Description must not exceed 500 characters&quot;)
+    private String description;
+
+    private boolean completed;
+
+    private LocalDate targetDate;
+
+    // Constructors
+<span class="fc" id="L32">    public TodoItem() {</span>
+<span class="fc" id="L33">    }</span>
+
+<span class="fc" id="L35">    public TodoItem(String title, String description, boolean completed, LocalDate targetDate) {</span>
+<span class="fc" id="L36">        this.title = title;</span>
+<span class="fc" id="L37">        this.description = description;</span>
+<span class="fc" id="L38">        this.completed = completed;</span>
+<span class="fc" id="L39">        this.targetDate = targetDate;</span>
+<span class="fc" id="L40">    }</span>
+
+    // Getters and Setters
+    public Long getId() {
+<span class="fc" id="L44">        return id;</span>
+    }
+
+    public void setId(Long id) {
+<span class="fc" id="L48">        this.id = id;</span>
+<span class="fc" id="L49">    }</span>
+
+    public String getTitle() {
+<span class="fc" id="L52">        return title;</span>
+    }
+
+    public void setTitle(String title) {
+<span class="fc" id="L56">        this.title = title;</span>
+<span class="fc" id="L57">    }</span>
+
+    public String getDescription() {
+<span class="fc" id="L60">        return description;</span>
+    }
+
+    public void setDescription(String description) {
+<span class="fc" id="L64">        this.description = description;</span>
+<span class="fc" id="L65">    }</span>
+
+    public boolean isCompleted() {
+<span class="fc" id="L68">        return completed;</span>
+    }
+
+    public void setCompleted(boolean completed) {
+<span class="fc" id="L72">        this.completed = completed;</span>
+<span class="fc" id="L73">    }</span>
+
+    public LocalDate getTargetDate() {
+<span class="fc" id="L76">        return targetDate;</span>
+    }
+
+    public void setTargetDate(LocalDate targetDate) {
+<span class="fc" id="L80">        this.targetDate = targetDate;</span>
+<span class="fc" id="L81">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.11.202310140853</span></div></body></html>
