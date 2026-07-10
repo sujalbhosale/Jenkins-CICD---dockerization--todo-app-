@@ -19,6 +19,12 @@ pipeline{
             }
         }
 
+        // stage('test'){
+        //     steps{
+        //         sh 'mvn test'
+        //     }
+        // }
+
         stage('build docker image'){
             steps{
                 sh 'docker build -t todo-app . '
