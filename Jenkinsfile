@@ -19,11 +19,14 @@ pipeline{
             }
         }
 
-        // stage('test'){
-        //     steps{
-        //         sh 'mvn test'
-        //     }
-        // }
+        stage('SonarQube Scanning'){
+            steps{
+                withSonarQubeEnv('SonarServer'){
+                    sh '''mvn clean verify sonar:sonar -Dsonar.projectKeys=todo-app'''
+
+                }
+            }
+        }
 
         stage('build docker image'){
             steps{
