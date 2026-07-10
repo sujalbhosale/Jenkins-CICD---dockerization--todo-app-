@@ -102,7 +102,7 @@ To allow Jenkins to communicate with your SonarQube server:
 2. Scroll down to the **SonarQube servers** section.
 3. Click **Add SonarQube**.
 4. Configure the details:
-   * **Name**: Write exactly **`SonarQubeServer`** (this name must match your Jenkinsfile stage).
+   * **Name**: Write exactly **`SonarServer`** (this name must match your Jenkinsfile stage).
    * **Server URL**: Enter your SonarQube address (e.g., `http://<YOUR_AWS_IP>:9000`).
    * **Server authentication token**: Select the **`sonar-token`** credential we created in Step 2.
 5. Click **Save** at the bottom of the page.
@@ -116,7 +116,7 @@ To trigger the quality scan automatically in your pipeline, update your `Jenkins
         stage('SonarQube Analysis') {
             steps {
                 // Injects the SonarQube server configurations we defined in Jenkins UI
-                withSonarQubeEnv('SonarQubeServer') {
+                withSonarQubeEnv('SonarServer') {
                     sh 'mvn sonar:sonar'
                 }
             }
