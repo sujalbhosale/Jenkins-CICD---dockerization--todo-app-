@@ -1,4 +1,4 @@
-# 🚀 End-to-End DevOps Pipeline: Java Web API & Containerized Deployment
+# 🚀 End-to-End DevOps Pipeline: Jenkins CI/CD, SonarQube Testing, & Docker Containerization
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen.svg)](#)
 [![Java Version](https://img.shields.io/badge/java-21-blue.svg)](#)
@@ -6,7 +6,7 @@
 [![SonarQube](https://img.shields.io/badge/sonarqube-integrated-orange.svg)](#)
 [![Hosting](https://img.shields.io/badge/aws-ubuntu--linux-orange.svg)](#)
 
-This is a production-ready, database-backed **Spring Boot Java REST Application** featuring an interactive web dashboard. It serves as a comprehensive showcase of modern DevOps methodologies, including **Continuous Integration (CI)**, **Continuous Deployment (CD)**, **Containerization**, **Code Quality Metrics (SAST)**, and **AWS Cloud Hosting**.
+This is a production-ready, database-backed **Spring Boot Java REST Application** featuring an interactive web dashboard. It serves as a comprehensive showcase of modern DevOps methodologies, utilizing a **Jenkins CI/CD Pipeline** to automate build testing and quality analysis with **SonarQube**, packaging with **Docker**, and hosting on **AWS Cloud Servers (Ubuntu)**.
 
 ---
 
