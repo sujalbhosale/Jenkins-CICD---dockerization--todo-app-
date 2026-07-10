@@ -33,6 +33,7 @@ pipeline{
                 sh 'docker build -t todo-app . '
             }
         }
+    
 
         stage('deploy container'){
             steps{
